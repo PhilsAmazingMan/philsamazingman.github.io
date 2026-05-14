@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Study 1 – Woebot</title>
+  <title>Study 1 – XiaoNan Chatbot</title>
 
   <style>
     :root {
@@ -14,12 +14,17 @@
       --accent: #4a6fa5;
       --accent-dark: #2f4f7f;
       --soft: #e7eef8;
+      --warn: #fff3d8;
       --line: #ded8ce;
-      --max-width: 900px;
+      --max-width: 1120px;
     }
 
     * {
       box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
     }
 
     body {
@@ -33,7 +38,7 @@
     header {
       background: var(--soft);
       border-bottom: 1px solid var(--line);
-      padding: 28px 0;
+      padding: 28px 0 44px;
     }
 
     .wrap {
@@ -48,7 +53,7 @@
 
     .back-link {
       display: inline-block;
-      margin-bottom: 18px;
+      margin-bottom: 24px;
       text-decoration: none;
       font-weight: bold;
     }
@@ -57,15 +62,45 @@
       text-decoration: underline;
     }
 
+    .hero {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 32px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      background: var(--card);
+      color: var(--accent-dark);
+      font-weight: bold;
+      font-size: 13px;
+      padding: 5px 9px;
+      border-radius: 12px;
+      margin-bottom: 14px;
+    }
+
     h1 {
-      font-size: 42px;
+      font-size: 48px;
       line-height: 1.1;
-      margin: 0;
+      margin: 0 0 16px;
+    }
+
+    h2 {
+      font-size: 30px;
+      line-height: 1.2;
+      margin: 0 0 16px;
+    }
+
+    h3 {
+      margin-top: 0;
+      margin-bottom: 10px;
     }
 
     .lead {
       font-size: 20px;
       color: var(--muted);
+      max-width: 760px;
     }
 
     main {
@@ -73,7 +108,17 @@
     }
 
     section {
-      margin-bottom: 40px;
+      margin-bottom: 56px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .grid.two {
+      grid-template-columns: repeat(2, 1fr);
     }
 
     .card {
@@ -81,7 +126,6 @@
       border: 1px solid var(--line);
       border-radius: 16px;
       padding: 22px;
-      margin-bottom: 18px;
     }
 
     .tag {
@@ -95,11 +139,64 @@
       margin-bottom: 10px;
     }
 
+    .num,
+    .effect {
+      font-size: 32px;
+      font-weight: bold;
+      color: var(--accent-dark);
+      margin-bottom: 8px;
+    }
+
+    .big-number {
+      border-top: 1px solid var(--line);
+      padding: 14px 0;
+    }
+
+    .big-number:first-of-type {
+      border-top: 0;
+    }
+
+    blockquote {
+      background: var(--card);
+      border-left: 6px solid var(--accent);
+      padding: 20px;
+      border-radius: 12px;
+      margin: 0;
+      font-size: 18px;
+    }
+
+    .note {
+      background: var(--warn);
+      border-left: 6px solid #e5cf94;
+      padding: 20px;
+      border-radius: 12px;
+    }
+
     footer {
       border-top: 1px solid var(--line);
       padding: 28px 0;
       color: var(--muted);
       font-size: 15px;
+    }
+
+    @media (max-width: 800px) {
+      .hero,
+      .grid,
+      .grid.two {
+        display: block;
+      }
+
+      h1 {
+        font-size: 36px;
+      }
+
+      h2 {
+        font-size: 26px;
+      }
+
+      .card {
+        margin-bottom: 16px;
+      }
     }
   </style>
 </head>
@@ -108,10 +205,34 @@
   <header>
     <div class="wrap">
       <a class="back-link" href="index.html">← Back to main page</a>
-      <h1>Study 1: Woebot for depression and anxiety</h1>
-      <p class="lead">
-        A closer look at one individual study included in the meta-analysis.
-      </p>
+
+      <div class="hero">
+        <div>
+          <h1>Study 1: XiaoNan for university students with depression</h1>
+          <p class="lead">
+            This page summarizes a study by Liu et al. (2022), which tested whether an AI chatbot called XiaoNan could provide an effective self-help depression intervention for university students.
+          </p>
+        </div>
+
+        <aside class="card" aria-label="Study at a glance">
+          <h2>Study at a glance</h2>
+
+          <div class="big-number">
+            <div class="num">83</div>
+            <div>university students participated in the randomized trial.</div>
+          </div>
+
+          <div class="big-number">
+            <div class="num">16 weeks</div>
+            <div>was the total follow-up period of the intervention.</div>
+          </div>
+
+          <div class="big-number">
+            <div class="num">XiaoNan</div>
+            <div>was the AI chatbot tested in the study.</div>
+          </div>
+        </aside>
+      </div>
     </div>
   </header>
 
@@ -119,25 +240,226 @@
     <section>
       <h2>Study overview</h2>
 
-      <div class="card">
-        <span class="tag">Design</span>
-        <p>
-          This page can summarize the study design, sample, intervention, control group, outcomes, and key findings.
-        </p>
+      <div class="grid">
+        <div class="card">
+          <span class="tag">Design</span>
+          <h3>Randomized controlled trial</h3>
+          <p>
+            The study used an unblinded randomized controlled trial design. Participants were assigned either to a chatbot intervention group or to a bibliotherapy control group.
+          </p>
+        </div>
+
+        <div class="card">
+          <span class="tag">Population</span>
+          <h3>University students</h3>
+          <p>
+            The participants were Chinese university students aged 19 to 28 years. All were full-time students and had elevated depression symptoms at baseline.
+          </p>
+        </div>
+
+        <div class="card">
+          <span class="tag">Comparison</span>
+          <h3>Chatbot vs. bibliotherapy</h3>
+          <p>
+            The chatbot group used XiaoNan, while the control group received a minimal bibliotherapy intervention based on a CBT self-help book.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>What was XiaoNan?</h2>
+
+      <div class="grid two">
+        <div class="card">
+          <span class="tag">Chatbot intervention</span>
+          <h3>A CBT-based therapy chatbot</h3>
+          <p>
+            XiaoNan was designed to deliver self-help support for depression. Its content was based on cognitive behavioral therapy principles and reviewed by professional therapists.
+          </p>
+        </div>
+
+        <div class="card">
+          <span class="tag">Platform</span>
+          <h3>WeChat-based access</h3>
+          <p>
+            The chatbot was deployed through the WeChat Official Accounts Platform. Users could access it through the WeChat smartphone app.
+          </p>
+        </div>
       </div>
 
-      <div class="card">
-        <span class="tag">Why this study matters</span>
+      <div class="grid two" style="margin-top: 18px;">
+        <div class="card">
+          <span class="tag">Interaction</span>
+          <h3>Text and voice messages</h3>
+          <p>
+            XiaoNan supported both text and voice input. Voice messages were first converted into text before being processed by the chatbot.
+          </p>
+        </div>
+
+        <div class="card">
+          <span class="tag">AI structure</span>
+          <h3>RASA-based chatbot</h3>
+          <p>
+            XiaoNan was built as a pipeline-based chatbot using the open-source conversational AI framework RASA. It included natural language processing, intention classification, and emotion recognition.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>What did the intervention include?</h2>
+
+      <div class="grid">
+        <div class="card">
+          <span class="tag">Daily support</span>
+          <h3>Emotion tracking</h3>
+          <p>
+            Users could use XiaoNan to track daily emotions and receive empathic responses from the chatbot.
+          </p>
+        </div>
+
+        <div class="card">
+          <span class="tag">CBT content</span>
+          <h3>Working with thoughts and emotions</h3>
+          <p>
+            XiaoNan aimed to help users separate emotions, thoughts, reactions, and behaviors, and to develop new automatic thoughts.
+          </p>
+        </div>
+
+        <div class="card">
+          <span class="tag">Safety</span>
+          <h3>Emergency support</h3>
+          <p>
+            Participants were provided with a local mental assistance hotline. Professionals could intervene by telephone when emergency psychological assistance was needed.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>What outcomes were measured?</h2>
+
+      <div class="grid">
+        <div class="card">
+          <span class="tag">Depression</span>
+          <h3>PHQ-9</h3>
+          <p>
+            Depression symptoms were measured using the Patient Health Questionnaire-9.
+          </p>
+        </div>
+
+        <div class="card">
+          <span class="tag">Anxiety</span>
+          <h3>GAD-7</h3>
+          <p>
+            Anxiety symptoms were measured using the Generalized Anxiety Disorder-7 scale.
+          </p>
+        </div>
+
+        <div class="card">
+          <span class="tag">Affect and experience</span>
+          <h3>PANAS, CSQ-8, WAI-SR</h3>
+          <p>
+            The study also measured positive and negative affect, user satisfaction, therapeutic alliance, adherence, and open-ended user feedback.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Main findings</h2>
+
+      <div class="grid">
+        <div class="card">
+          <span class="tag">Depression</span>
+          <div class="effect">d = 0.83</div>
+          <p>
+            In the intention-to-treat analysis, the chatbot group showed a significantly greater reduction in depression symptoms compared with the bibliotherapy group.
+          </p>
+        </div>
+
+        <div class="card">
+          <span class="tag">Anxiety</span>
+          <div class="effect">d = 0.30</div>
+          <p>
+            Anxiety symptoms also decreased significantly, although the effect size was smaller than for depression.
+          </p>
+        </div>
+
+        <div class="card">
+          <span class="tag">Therapeutic alliance</span>
+          <div class="effect">higher</div>
+          <p>
+            The chatbot group reported a stronger therapeutic alliance than the bibliotherapy group, suggesting that conversational AI may support a sense of working relationship.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>User feedback</h2>
+
+      <div class="grid two">
+        <div class="card">
+          <span class="tag">Positive feedback</span>
+          <h3>Accessible, friendly, educational</h3>
+          <p>
+            Users described XiaoNan as easy to access, empathic or friendly, interesting, and educational. Some users also valued the depression-related information and interactive CBT elements.
+          </p>
+        </div>
+
+        <div class="card">
+          <span class="tag">Negative feedback</span>
+          <h3>Impersonal and repetitive</h3>
+          <p>
+            Users also reported limitations. Some described the chatbot as impersonal, unnatural, rigid, repetitive, too general, or sometimes misunderstanding user input.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Why is this study relevant?</h2>
+
+      <blockquote>
+        This study is relevant because it tested an AI chatbot under a longer 16-week follow-up period and compared it with an established self-help approach rather than with no intervention.
+      </blockquote>
+
+      <div class="grid two" style="margin-top: 18px;">
+        <div class="card">
+          <span class="tag">Contribution</span>
+          <h3>Evidence under pragmatic conditions</h3>
+          <p>
+            The authors aimed to add evidence for chatbot therapy as a convenient, affordable, and interactive self-help intervention for depression.
+          </p>
+        </div>
+
+        <div class="card">
+          <span class="tag">Connection to the meta-analysis</span>
+          <h3>Example of AI-based mental health support</h3>
+          <p>
+            The study illustrates how AI-based conversational agents can be used to deliver structured mental health support and how user experience may influence the success of such interventions.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Limitations and critical perspective</h2>
+
+      <div class="note">
         <p>
-          Explain why you selected this study and how it contributes to the overall findings of the meta-analysis.
+          The authors noted several limitations. The chatbot content was limited and could become repetitive. The study focused only on depression, although users may experience multiple mental health problems at the same time. The participant sample also lacked diversity, so future studies should test the intervention in broader populations and over longer periods.
         </p>
       </div>
     </section>
 
     <section>
       <h2>Key takeaway</h2>
-      <p>
-        Add your interpretation here. For example: This study illustrates how AI-based chatbots can deliver structured mental health support, but also shows the importance of evaluating safety, engagement, and clinical relevance.
+
+      <p class="lead">
+        The XiaoNan study suggests that chatbot-delivered self-help interventions can reduce depression symptoms among university students and may create a stronger therapeutic alliance than bibliotherapy. However, the study also shows that chatbot quality, personalization, content variety, and user experience are central for long-term engagement and effectiveness.
       </p>
     </section>
   </main>
@@ -145,7 +467,12 @@
   <footer>
     <div class="wrap">
       <p>
-        Back to the main meta-analysis page: <a href="index.html">index.html</a>
+        Source: Liu, H., Peng, H., Song, X., Xu, C. & Zhang, M. (2022).
+        <em>Using AI chatbots to provide self-help depression interventions for university students: A randomized trial of effectiveness</em>.
+        Internet Interventions, 27, 100495.
+      </p>
+      <p>
+        <a href="index.html">← Back to the main meta-analysis page</a>
       </p>
     </div>
   </footer>
