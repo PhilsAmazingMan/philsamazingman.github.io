@@ -1,410 +1,458 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>AI Chatbots for Mental Health – Meta-Analysis Explained</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>AI Chatbots for Mental Health – Meta-Analysis Explained</title>
 
-  <style>
-    :root {
-      --bg: #f7f4ef;
-      --card: #ffffff;
-      --text: #202124;
-      --muted: #5f6368;
-      --accent: #4a6fa5;
-      --accent-dark: #2f4f7f;
-      --soft: #e7eef8;
-      --warn: #fff3d8;
-      --line: #ded8ce;
-      --max-width: 1120px;
-    }
+    <style>
+        :root {
+            --bg: #f7f4ef;
+            --card: #ffffff;
+            --text: #202124;
+            --muted: #5f6368;
+            --accent: #4a6fa5;
+            --accent-dark: #2f4f7f;
+            --soft: #e7eef8;
+            --warn: #fff3d8;
+            --line: #ded8ce;
+            --max-width: 1120px;
+        }
 
-    * {
-      box-sizing: border-box;
-    }
+        * {
+            box-sizing: border-box;
+        }
 
-    html {
-      scroll-behavior: smooth;
-    }
+        html {
+            scroll-behavior: smooth;
+        }
 
-    body {
-      margin: 0;
-      font-family: Arial, Helvetica, sans-serif;
-      line-height: 1.6;
-      color: var(--text);
-      background: var(--bg);
-    }
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background: var(--bg);
+        }
 
-    header {
-      background: var(--soft);
-      border-bottom: 1px solid var(--line);
-      padding-bottom: 40px;
-    }
+        header {
+            background: var(--soft);
+            border-bottom: 1px solid var(--line);
+            padding-bottom: 40px;
+        }
 
-    .wrap {
-      max-width: var(--max-width);
-      margin: 0 auto;
-      padding: 0 16px;
-    }
+        .wrap {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 16px;
+        }
 
-    nav {
-      display: flex;
-      justify-content: space-between;
-      gap: 16px;
-      padding: 18px 0;
-    }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            gap: 16px;
+            padding: 18px 0;
+        }
 
-    .brand {
-      font-weight: bold;
-      color: var(--accent-dark);
-    }
+        .brand {
+            font-weight: bold;
+            color: var(--accent-dark);
+        }
 
-    nav a {
-      color: var(--text);
-      text-decoration: none;
-      margin-left: 12px;
-    }
+        nav a {
+            color: var(--text);
+            text-decoration: none;
+            margin-left: 12px;
+        }
 
-    nav a:hover {
-      text-decoration: underline;
-    }
+        nav a:hover {
+            text-decoration: underline;
+        }
 
-    .hero {
-      display: grid;
-      grid-template-columns: 2fr 1fr;
-      gap: 32px;
-      align-items: center;
-      padding-top: 40px;
-    }
+        .hero {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 32px;
+            align-items: center;
+            padding-top: 40px;
+        }
 
-    .eyebrow {
-      display: inline-block;
-      background: var(--card);
-      color: var(--accent-dark);
-      font-weight: bold;
-      font-size: 13px;
-      padding: 5px 9px;
-      border-radius: 12px;
-      margin-bottom: 14px;
-    }
+        .eyebrow {
+            display: inline-block;
+            background: var(--card);
+            color: var(--accent-dark);
+            font-weight: bold;
+            font-size: 13px;
+            padding: 5px 9px;
+            border-radius: 12px;
+            margin-bottom: 14px;
+        }
 
-    h1 {
-      font-size: 48px;
-      line-height: 1.1;
-      margin: 0 0 16px;
-    }
+        h1 {
+            font-size: 48px;
+            line-height: 1.1;
+            margin: 0 0 16px;
+        }
 
-    h2 {
-      font-size: 30px;
-      line-height: 1.2;
-      margin: 0 0 16px;
-    }
+        h2 {
+            font-size: 30px;
+            line-height: 1.2;
+            margin: 0 0 16px;
+        }
 
-    h3 {
-      margin-top: 0;
-      margin-bottom: 10px;
-    }
+        h3 {
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
 
-    .lead {
-      font-size: 20px;
-      color: var(--muted);
-    }
+        .lead {
+            font-size: 20px;
+            color: var(--muted);
+        }
 
-    .button {
-      display: inline-block;
-      background: var(--accent);
-      color: white;
-      text-decoration: none;
-      font-weight: bold;
-      padding: 10px 16px;
-      border-radius: 20px;
-      margin-right: 8px;
-      margin-top: 8px;
-    }
+        .button {
+            display: inline-block;
+            background: var(--accent);
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 10px 16px;
+            border-radius: 20px;
+            margin-right: 8px;
+            margin-top: 8px;
+        }
 
-    .button.secondary {
-      background: var(--card);
-      color: var(--accent-dark);
-      border: 1px solid var(--accent);
-    }
+        .button.secondary {
+            background: var(--card);
+            color: var(--accent-dark);
+            border: 1px solid var(--accent);
+        }
 
-    main {
-      padding: 40px 0;
-    }
+        main {
+            padding: 40px 0;
+        }
 
-    section {
-      margin-bottom: 56px;
-    }
+        section {
+            margin-bottom: 56px;
+        }
 
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
-    }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+        }
 
-    .grid.two {
-      grid-template-columns: repeat(2, 1fr);
-    }
+        .grid.two {
+            grid-template-columns: repeat(2, 1fr);
+        }
 
-    .card {
-      background: var(--card);
-      border: 1px solid var(--line);
-      border-radius: 16px;
-      padding: 22px;
-    }
+        .card {
+            background: var(--card);
+            border: 1px solid var(--line);
+            border-radius: 16px;
+            padding: 22px;
+        }
 
-    .tag {
-      display: inline-block;
-      background: var(--soft);
-      color: var(--accent-dark);
-      font-weight: bold;
-      font-size: 13px;
-      padding: 4px 8px;
-      border-radius: 12px;
-      margin-bottom: 10px;
-    }
+        .tag {
+            display: inline-block;
+            background: var(--soft);
+            color: var(--accent-dark);
+            font-weight: bold;
+            font-size: 13px;
+            padding: 4px 8px;
+            border-radius: 12px;
+            margin-bottom: 10px;
+        }
 
-    .num,
-    .effect {
-      font-size: 32px;
-      font-weight: bold;
-      color: var(--accent-dark);
-      margin-bottom: 8px;
-    }
+        .num,
+        .effect {
+            font-size: 32px;
+            font-weight: bold;
+            color: var(--accent-dark);
+            margin-bottom: 8px;
+        }
 
-    .big-number {
-      border-top: 1px solid var(--line);
-      padding: 14px 0;
-    }
+        .big-number {
+            border-top: 1px solid var(--line);
+            padding: 14px 0;
+        }
 
-    .big-number:first-of-type {
-      border-top: 0;
-    }
+        .big-number:first-of-type {
+            border-top: 0;
+        }
 
-    blockquote {
-      background: var(--card);
-      border-left: 6px solid var(--accent);
-      padding: 20px;
-      border-radius: 12px;
-      margin: 0;
-      font-size: 18px;
-    }
+        blockquote {
+            background: var(--card);
+            border-left: 6px solid var(--accent);
+            padding: 20px;
+            border-radius: 12px;
+            margin: 0;
+            font-size: 18px;
+        }
 
-    .note {
-      background: var(--warn);
-      border-left: 6px solid #e5cf94;
-      padding: 20px;
-      border-radius: 12px;
-    }
+        .note {
+            background: var(--warn);
+            border-left: 6px solid #e5cf94;
+            padding: 20px;
+            border-radius: 12px;
+        }
 
-    .questions li {
-      margin-bottom: 10px;
-    }
+        .questions li {
+            margin-bottom: 10px;
+        }
 
-    footer {
-      border-top: 1px solid var(--line);
-      padding: 28px 0;
-      color: var(--muted);
-      font-size: 15px;
-    }
-  </style>
+        footer {
+            border-top: 1px solid var(--line);
+            padding: 28px 0;
+            color: var(--muted);
+            font-size: 15px;
+        }
+
+        .intro {
+            max-width: 850px;
+            border-left: 5px solid var(--accent);
+            padding-left: 22px;
+        }
+
+        .intro p {
+            font-size: 18px;
+            color: var(--muted);
+        }
+    </style>
 </head>
 
 <body>
-  <header>
-    <div class="wrap">
-      <nav aria-label="Main navigation">
-        <div class="brand">Meta-analysis explained</div>
-        <div>
-          <a href="#question">Research question</a>
-          <a href="#results">Results</a>
-          <a href="#stakeholders">Stakeholders</a>
+    <header>
+        <div class="wrap">
+            <nav aria-label="Main navigation">
+                <div class="brand">Meta-analysis explained</div>
+                <div>
+                    <a href="#question">Research question</a>
+                    <a href="#results">Results</a>
+                    <a href="#stakeholders">Stakeholders</a>
+                </div>
+            </nav>
+
+            <div class="hero">
+                <div>
+                    <span class="eyebrow">AI · Mental Health · Well-being</span>
+                    <h1>Can AI chatbots support mental health?</h1>
+                    <p class="lead">
+                        This website explains a systematic review and meta-analysis on AI-based conversational agents:
+                        chatbots or virtual agents designed to support people with psychological distress and
+                        well-being.
+                    </p>
+
+                    <a class="button" href="#results">View key findings</a>
+                    <a class="button secondary" href="#discussion">Panel discussion questions</a>
+                </div>
+
+                <aside class="card" aria-label="Study at a glance">
+                    <h2>The study at a glance</h2>
+
+                    <div class="big-number">
+                        <div class="num">35</div>
+                        <div>studies were included in the systematic review.</div>
+                    </div>
+
+                    <div class="big-number">
+                        <div class="num">15</div>
+                        <div>randomized controlled trials were included in the meta-analysis.</div>
+                    </div>
+
+                    <div class="big-number">
+                        <div class="num">1,744</div>
+                        <div>participants were included in the trials analyzed statistically.</div>
+                    </div>
+                </aside>
+            </div>
         </div>
-      </nav>
+    </header>
 
-      <div class="hero">
-        <div>
-          <span class="eyebrow">AI · Mental Health · Well-being</span>
-          <h1>Can AI chatbots support mental health?</h1>
-          <p class="lead">
-            This website explains a systematic review and meta-analysis on AI-based conversational agents: chatbots or virtual agents designed to support people with psychological distress and well-being.
-          </p>
+    <main class="wrap">
+        <br>
+        <section id="introduction" class="intro">
+            <h2>Introduction</h2>
+            <p>
+                Artificial intelligence is increasingly being used in mental health care. One example is AI-based
+                conversational agents, often called chatbots, which can interact with users through text or voice. These
+                systems may provide psychoeducation, emotional support, or simple therapeutic exercises.
+            </p>
+            <p>
+                Because these tools are becoming more common, it is important to understand whether they actually help
+                users and where their limitations are. This meta-analysis summarizes the current evidence on AI-based
+                chatbots for mental health and well-being.
+            </p>
+        </section>
+        <section id="question">
+            <h2>What was the meta-analysis about?</h2>
+            <div class="card">
+                <span class="tag">Research question</span>
+                <h3>Do AI-based chatbots work?</h3>
+                <p>
+                    The authors examined whether AI-based conversational agents can reduce symptoms such as depression,
+                    anxiety, stress, and general psychological distress, and whether they can improve psychological
+                    well-being.
+                </p>
+            </div>
+        </section>
 
-          <a class="button" href="#results">View key findings</a>
-          <a class="button secondary" href="#discussion">Panel discussion questions</a>
+        <section id="method">
+            <h2>How did the researchers proceed?</h2>
+
+            <div class="grid">
+                <div class="card">
+                    <h3>1. Literature search</h3>
+                    <p>
+                        The researchers searched twelve scientific databases. In total, 7,834 records were screened.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <h3>2. Study selection</h3>
+                    <p>
+                        35 experimental studies met the criteria for the systematic review. For the statistical
+                        meta-analysis, 15 randomized controlled trials remained.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <h3>3. Effect comparison</h3>
+                    <p>
+                        The researchers calculated effect sizes for psychological distress, depression, anxiety,
+                        well-being, and positive and negative affect.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section id="results">
+            <h2>What did the study find?</h2>
+
+            <div class="grid">
+                <article class="card">
+                    <span class="tag">Psychological distress</span>
+                    <div class="effect">g = 0.70</div>
+                    <p>
+                        AI-based chatbots significantly reduced psychological distress. This effect was approximately in
+                        the medium-to-large range.
+                    </p>
+                </article>
+
+                <article class="card">
+                    <span class="tag">Depressive symptoms</span>
+                    <div class="effect">g = 0.64</div>
+                    <p>
+                        Depressive symptoms also improved significantly in favor of the chatbot interventions.
+                    </p>
+                </article>
+
+                <article class="card">
+                    <span class="tag">Well-being</span>
+                    <div class="effect">g = 0.32</div>
+                    <p>
+                        For overall psychological well-being, the effect was positive but not statistically significant.
+                    </p>
+                </article>
+            </div>
+        </section>
+
+        <section id="what-works">
+            <h2>When do chatbots seem especially helpful?</h2>
+
+            <div class="grid two">
+                <div class="card">
+                    <h3>Stronger effects</h3>
+                    <p>
+                        Effects were stronger for generative chatbots, multimodal or voice-based agents, mobile apps and
+                        messenger platforms, clinical or subclinical groups, and older adults.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <h3>Positive user experience</h3>
+                    <p>
+                        Positive experiences were mainly linked to empathic communication, a helpful therapeutic
+                        relationship, and relevant content. Negative experiences often occurred when the chatbot
+                        misunderstood users or responded in an unsuitable way.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section id="stakeholders">
+            <h2>What does this mean for the public and stakeholders?</h2>
+
+            <blockquote>
+                AI chatbots can be a useful addition to mental health support, but they should not replace professional
+                care, especially in acute crises, suicidal ideation, or complex mental health conditions.
+            </blockquote>
+
+            <div class="grid" style="margin-top: 18px;">
+                <div class="card">
+                    <span class="tag">For users</span>
+                    <h3>First support, not final care</h3>
+                    <p>
+                        Chatbots may help users reflect, structure thoughts, and practice coping strategies. However,
+                        people with severe distress should seek professional support.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <span class="tag">For schools & universities</span>
+                    <h3>Prevention and orientation</h3>
+                    <p>
+                        Digital tools could complement counseling services, but they require clear rules, privacy
+                        protection, and access to human support when needed.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <span class="tag">For policy & providers</span>
+                    <h3>Safety first</h3>
+                    <p>
+                        Important requirements include evidence, transparency, data protection, crisis protocols, and
+                        clear boundaries around what an AI system is allowed to do.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section id="limitations">
+            <h2>What should be viewed critically?</h2>
+
+            <div class="note">
+                <p>
+                    <strong>The evidence is promising, but not final.</strong> The studies differed strongly in target
+                    groups, chatbot types, intervention duration, and outcomes. There is still limited evidence on
+                    long-term effects. Several studies also had methodological limitations, such as missing blinding or
+                    dropout problems.
+                </p>
+            </div>
+        </section>
+
+        <section id="conclusion">
+            <h2>Conclusion</h2>
+            <p class="lead">
+                AI-based conversational agents show measurable benefits for psychological distress and depressive
+                symptoms. The evidence for overall well-being and long-term effects is less certain. Their most useful
+                role is probably not replacing human care, but responsibly complementing existing mental health
+                services.
+            </p>
+        </section>
+    </main>
+
+    <footer>
+        <div class="wrap">
+            <p>
+                Source: Li, H., Zhang, R., Lee, Y.-C., Kraut, R. E. & Mohr, D. C. (2023).
+                <em>Systematic review and meta-analysis of AI-based conversational agents for promoting mental health
+                    and well-being</em>.
+                npj Digital Medicine, 6, 236. DOI: 10.1038/s41746-023-00979-5
+            </p>
         </div>
-
-        <aside class="card" aria-label="Study at a glance">
-          <h2>The study at a glance</h2>
-
-          <div class="big-number">
-            <div class="num">35</div>
-            <div>studies were included in the systematic review.</div>
-          </div>
-
-          <div class="big-number">
-            <div class="num">15</div>
-            <div>randomized controlled trials were included in the meta-analysis.</div>
-          </div>
-
-          <div class="big-number">
-            <div class="num">1,744</div>
-            <div>participants were included in the trials analyzed statistically.</div>
-          </div>
-        </aside>
-      </div>
-    </div>
-  </header>
-
-  <main class="wrap">
-    <section id="question">
-      <h2>What was the meta-analysis about?</h2>
-        <div class="card">
-          <span class="tag">Research question</span>
-          <h3>Do AI-based chatbots work?</h3>
-          <p>
-            The authors examined whether AI-based conversational agents can reduce symptoms such as depression, anxiety, stress, and general psychological distress, and whether they can improve psychological well-being.
-          </p>
-        </div>
-    </section>
-
-    <section id="method">
-      <h2>How did the researchers proceed?</h2>
-
-      <div class="grid">
-        <div class="card">
-          <h3>1. Literature search</h3>
-          <p>
-            The researchers searched twelve scientific databases. In total, 7,834 records were screened.
-          </p>
-        </div>
-
-        <div class="card">
-          <h3>2. Study selection</h3>
-          <p>
-            35 experimental studies met the criteria for the systematic review. For the statistical meta-analysis, 15 randomized controlled trials remained.
-          </p>
-        </div>
-
-        <div class="card">
-          <h3>3. Effect comparison</h3>
-          <p>
-            The researchers calculated effect sizes for psychological distress, depression, anxiety, well-being, and positive and negative affect.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <section id="results">
-      <h2>What did the study find?</h2>
-
-      <div class="grid">
-        <article class="card">
-          <span class="tag">Psychological distress</span>
-          <div class="effect">g = 0.70</div>
-          <p>
-            AI-based chatbots significantly reduced psychological distress. This effect was approximately in the medium-to-large range.
-          </p>
-        </article>
-
-        <article class="card">
-          <span class="tag">Depressive symptoms</span>
-          <div class="effect">g = 0.64</div>
-          <p>
-            Depressive symptoms also improved significantly in favor of the chatbot interventions.
-          </p>
-        </article>
-
-        <article class="card">
-          <span class="tag">Well-being</span>
-          <div class="effect">g = 0.32</div>
-          <p>
-            For overall psychological well-being, the effect was positive but not statistically significant.
-          </p>
-        </article>
-      </div>
-    </section>
-
-    <section id="what-works">
-      <h2>When do chatbots seem especially helpful?</h2>
-
-      <div class="grid two">
-        <div class="card">
-          <h3>Stronger effects</h3>
-          <p>
-            Effects were stronger for generative chatbots, multimodal or voice-based agents, mobile apps and messenger platforms, clinical or subclinical groups, and older adults.
-          </p>
-        </div>
-
-        <div class="card">
-          <h3>Positive user experience</h3>
-          <p>
-            Positive experiences were mainly linked to empathic communication, a helpful therapeutic relationship, and relevant content. Negative experiences often occurred when the chatbot misunderstood users or responded in an unsuitable way.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <section id="stakeholders">
-      <h2>What does this mean for the public and stakeholders?</h2>
-
-      <blockquote>
-        AI chatbots can be a useful addition to mental health support, but they should not replace professional care, especially in acute crises, suicidal ideation, or complex mental health conditions.
-      </blockquote>
-
-      <div class="grid" style="margin-top: 18px;">
-        <div class="card">
-          <span class="tag">For users</span>
-          <h3>First support, not final care</h3>
-          <p>
-            Chatbots may help users reflect, structure thoughts, and practice coping strategies. However, people with severe distress should seek professional support.
-          </p>
-        </div>
-
-        <div class="card">
-          <span class="tag">For schools & universities</span>
-          <h3>Prevention and orientation</h3>
-          <p>
-            Digital tools could complement counseling services, but they require clear rules, privacy protection, and access to human support when needed.
-          </p>
-        </div>
-
-        <div class="card">
-          <span class="tag">For policy & providers</span>
-          <h3>Safety first</h3>
-          <p>
-            Important requirements include evidence, transparency, data protection, crisis protocols, and clear boundaries around what an AI system is allowed to do.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <section id="limitations">
-      <h2>What should be viewed critically?</h2>
-
-      <div class="note">
-        <p>
-          <strong>The evidence is promising, but not final.</strong> The studies differed strongly in target groups, chatbot types, intervention duration, and outcomes. There is still limited evidence on long-term effects. Several studies also had methodological limitations, such as missing blinding or dropout problems.
-        </p>
-      </div>
-    </section>
-
-    <section id="conclusion">
-      <h2>Conclusion</h2>
-      <p class="lead">
-        AI-based conversational agents show measurable benefits for psychological distress and depressive symptoms. The evidence for overall well-being and long-term effects is less certain. Their most useful role is probably not replacing human care, but responsibly complementing existing mental health services.
-      </p>
-    </section>
-  </main>
-
-  <footer>
-    <div class="wrap">
-      <p>
-        Source: Li, H., Zhang, R., Lee, Y.-C., Kraut, R. E. & Mohr, D. C. (2023).
-        <em>Systematic review and meta-analysis of AI-based conversational agents for promoting mental health and well-being</em>.
-        npj Digital Medicine, 6, 236. DOI: 10.1038/s41746-023-00979-5
-      </p>
-    </div>
-  </footer>
+    </footer>
 </body>
+
 </html>
