@@ -11,7 +11,6 @@
             --bg: #f7f4ef;
             --card: #ffffff;
             --text: #202124;
-            --muted: #5f6368;
             --accent: #4a6fa5;
             --accent-dark: #2f4f7f;
             --soft: #e7eef8;
@@ -108,7 +107,6 @@
 
         .lead {
             font-size: 20px;
-            color: var(--muted);
         }
 
         .button {
@@ -207,13 +205,11 @@
         footer {
             border-top: 1px solid var(--line);
             padding: 28px 0;
-            color: var(--muted);
             font-size: 15px;
         }
 
         p {
             font-size: 18px;
-            color: var(--muted);
         }
 
         .study-link {
@@ -223,6 +219,25 @@
 
         .study-link:hover {
             border-color: var(--accent);
+        }
+
+        .quality-section {
+            margin: 0 auto 56px;
+        }
+
+        .quality-section h3 {
+            color: var(--accent-dark);
+            margin-top: 28px;
+            margin-bottom: 8px;
+        }
+
+        .quality-section p {
+            font-size: 18px;
+            color: var(--muted);
+        }
+
+        .quality-section blockquote {
+            margin-top: 28px;
         }
     </style>
 </head>
@@ -236,6 +251,7 @@
                     <a href="#introduction">Introduction</a>
                     <a href="#results">Results</a>
                     <a href="#stakeholders">Stakeholders</a>
+                    <a href="#discussion">Discussion</a>
                 </div>
             </nav>
 
@@ -254,21 +270,21 @@
                 </div>
 
                 <aside class="card" aria-label="Study at a glance">
-                    <h2>The study at a glance</h2>
-
-                    <div class="big-number">
-                        <div class="num">35</div>
-                        <div>studies were included in the systematic review.</div>
-                    </div>
+                    <h2>Quick overview</h2>
 
                     <div class="big-number">
                         <div class="num">15</div>
-                        <div>randomized controlled trials were included in the meta-analysis.</div>
+                        <div>studies were included in the meta-analysis.</div>
                     </div>
 
                     <div class="big-number">
                         <div class="num">1,744</div>
-                        <div>participants were included in the trials analyzed statistically.</div>
+                        <div>participants were included in the randomized trials analyzed statistically.</div>
+                    </div>
+
+                    <div class="big-number">
+                        <div class="num">g = 0.64</div>
+                        <div>effect on reducing depressive symptoms.</div>
                     </div>
                 </aside>
             </div>
@@ -278,44 +294,81 @@
     <main class="wrap">
         <br>
         <br>
+        <section id="meta-overview">
+            <h2>Meta-analysis at a glance</h2>
+
+            <blockquote>
+                <p>
+                    <strong>Focus of the study:</strong>
+                    This meta-analysis examined whether AI-based conversational agents can improve mental health and
+                    psychological well-being, especially psychological distress, depression, anxiety, stress, and
+                    overall
+                    well-being.
+                </p>
+
+                <p>
+                    <strong>Sample examined:</strong>
+                    The systematic review included 35 studies. Of these, 15 randomized controlled trials with 1,744
+                    participants were included in the meta-analysis.
+                </p>
+
+                <p>
+                    <strong>Average effect size:</strong>
+                    AI-based conversational agents significantly reduced psychological distress
+                    (<em>Hedges’ g</em> = 0.70, 95% CI [0.18, 1.22]) and depressive symptoms
+                    (<em>Hedges’ g</em> = 0.64, 95% CI [0.17, 1.12]). Their effect on overall psychological well-being
+                    was
+                    positive, but not statistically significant
+                    (<em>Hedges’ g</em> = 0.32, 95% CI [−0.13, 0.78]).
+                </p>
+
+                <p>
+                    <strong>Additional findings:</strong>
+                    Effects were stronger for generative AI-based agents, multimodal or voice-based agents, mobile apps
+                    and
+                    instant messaging platforms, clinical or subclinical populations, and middle-aged or older adults.
+                </p>
+            </blockquote>
+        </section>
         <section id="introduction" class="intro">
             <h2>Introduction</h2>
             <p>
-                Conversational agents, commonly referred to as chatbots, are increasingly being explored as digital
+                Conversational agents (CAs), commonly referred to as chatbots, are increasingly being explored as
+                digital
                 tools in mental health care. They can support users by providing psychoeducation, facilitating
                 consultations, delivering elements of psychological interventions, and offering social or emotional
                 support. In this way, conversational agents may help complement existing mental health services and
                 address barriers such as limited access, waiting times, or stigma.
-            </p>
-
-            <p>
+                <br>
+                <br>
                 Earlier conversational agents were often rule-based systems that relied on predefined scripts or
                 decision trees. Although such systems can be useful for structured interactions, they are limited in
                 their ability to understand user context, intention, and emotional nuance. Recent advances in artificial
                 intelligence, including natural language processing, machine learning, deep learning, and generative AI,
                 have enabled the development of more adaptive AI-based conversational agents. These systems may process
                 more complex user input and provide more personalized responses to mental health needs.
-            </p>
-
-            <p>
+                <br>
+                <br>
                 However, the integration of AI-based conversational agents into mental health care also raises important
                 challenges. Potential risks include privacy concerns, algorithmic bias, inaccurate or inappropriate
                 responses, and safety issues in situations involving acute distress or crisis. Because mental health
                 interactions often involve sensitive personal information, the effectiveness and safety of these tools
                 require careful empirical evaluation.
-            </p>
-
+                <br>
+                <br>
+            <h2>Aim of the systematic review and meta-analysis</h2>
             <p>
-                Against this background, the present systematic review and meta-analysis synthesizes the available
-                evidence on AI-based conversational agents for mental health and well-being. It focuses on experimental
-                studies in which an AI-based conversational agent served as the primary intervention and examines both
-                clinical outcomes and factors shaping user experience.
+                This systematic review and meta-analysis evaluates the effects of AI-based conversational agents on
+                psychological distress and psychological well-being. It focuses on experimental studies in which an
+                AI-based conversational agent was the primary intervention. In addition, the review examines factors
+                that may influence effectiveness and summarizes how users experience these systems.
+            </p>
             </p>
         </section>
         <section id="question">
             <div class="card">
                 <span class="tag">Research question</span>
-                <div class="effect">Do AI-based chatbots work?</div>
+                <h3>Do AI-based chatbots work?</h3>
                 <p>
                     The authors examined whether AI-based conversational agents can reduce symptoms such as depression,
                     anxiety, stress, and general psychological distress, and whether they can improve psychological
@@ -336,7 +389,7 @@
             <div class="grid two">
                 <article class="card">
                     <span class="tag">Significant Results</span>
-                    <div class="effect">Psychological distress</div>
+                    <h3>Psychological distress</h3>
                     <p>
                         The primary finding was a significant and large reduction in overall psychological distress
                         among users of AI-based CAs, with a pooled effect size of g = 0.70 (95% CI 0.18–1.22).
@@ -347,7 +400,7 @@
 
                 <article class="card">
                     <span class="tag">Significant Results</span>
-                    <div class="effect">Depressive symptoms</div>
+                    <h3>Depressive symptoms</h3>
                     <p>
                         CAs were found to be effective specifically for depression, yielding a moderate-to-large effect
                         size of g = 0.64 (95% CI 0.17–1.12).
@@ -358,7 +411,7 @@
             <div class="grid two">
                 <article class="card">
                     <span class="tag">Inconsistent Results</span>
-                    <div class="effect">Well-being</div>
+                    <h3>Well-being</h3>
                     <p>
                         The effect on psychological well-being was positive but not statistically significant (g = 0.32;
                         95% CI –0.13 to 0.78), potentially due to the smaller number of trials or the need for
@@ -368,7 +421,7 @@
 
                 <article class="card">
                     <span class="tag">Inconsistent Results</span>
-                    <div class="effect">Anxiety, positive and negative Affect</div>
+                    <h3>Anxiety, positive and negative Affect</h3>
                     <p>
                         Effects on generalized anxiety (g = 0.65), positive affect (g = 0.07), and negative affect (g =
                         0.52) were also found to be statistically non-significant across the included trials.
@@ -438,6 +491,39 @@
             </div>
         </section>
 
+        <section id="discussion">
+            <h2>Discussion</h2>
+            <p>
+                The discussion highlights that AI-based conversational agents may be a promising tool for supporting
+                mental health care. Overall, the findings suggest that these agents can reduce psychological distress,
+                especially symptoms such as depression, anxiety, and stress. The strongest effects were found for
+                generative AI-based agents, multimodal or voice-based agents, and interventions delivered through mobile
+                apps or instant messaging platforms. The effects also appeared stronger among clinical or subclinical
+                populations and among middle-aged or older adults.
+                <br>
+                <br>
+                One important point is that AI-based conversational agents seemed more effective for reducing
+                psychological distress than for improving psychological well-being. The authors suggest that well-being
+                may be harder to change in the short term, because it is often more stable over time and may require
+                longer engagement with the intervention. In contrast, distress-related outcomes may respond more quickly
+                to short-term support.
+                <br>
+                <br>
+                The discussion also emphasizes the role of user experience. Positive experiences were often linked to
+                the perceived therapeutic relationship with the chatbot, the quality of the content, and effective
+                communication. However, communication breakdowns were an important problem. When conversational agents
+                failed to understand or respond appropriately, users were more likely to have negative experiences,
+                which could reduce the effectiveness of the intervention.
+                <br>
+                <br>
+                Another key point is that conversational agents should not be seen as a replacement for professional
+                mental health services. Instead, they may be useful as an accessible and scalable form of support,
+                especially in contexts where access to traditional care is limited. The authors argue that future
+                research should examine how these tools work, for whom they work best, and how they can be safely
+                integrated into mental health care.
+            </p>
+        </section>
+
         <section id="limitations">
             <h2>What should be viewed critically?</h2>
 
@@ -461,6 +547,69 @@
             </p>
         </section>
 
+        <section id="quality" class="quality-section">
+            <h2>Quality of the meta-analysis</h2>
+
+            <p class="lead">
+                The quality and persuasiveness of the meta-analysis can be evaluated using the MAGIC criteria:
+                Magnitude, Articulation, Generality, Interestingness, and Credibility.
+            </p>
+
+            <h3>Magnitude: How large are the effects?</h3>
+            <p>
+                The meta-analysis reports a relatively strong effect for reducing psychological distress
+                (<em>Hedges’ g</em> = 0.70, 95% CI [0.18, 1.22]) and a significant effect for reducing depressive
+                symptoms
+                (<em>g</em> = 0.64, 95% CI [0.17, 1.12]). These effects can be interpreted as moderate to large.
+                However, the effect on overall psychological well-being was smaller and not statistically significant
+                (<em>g</em> = 0.32, 95% CI [−0.13, 0.78]). Therefore, the magnitude is convincing for psychological
+                distress and depression, but less convincing for broader well-being.
+            </p>
+
+            <h3>Articulation: How specific are the claims?</h3>
+            <p>
+                The claims are fairly well articulated because the authors distinguish between different outcomes,
+                including psychological distress, depression, anxiety, positive and negative affect and well-being.
+                They also examine whether effects differ by chatbot type, interaction mode, delivery platform, age
+                group and clinical status. However, the high heterogeneity across studies and wide confidence intervals
+                limit the precision of some conclusions.
+            </p>
+
+            <h3>Generality: How broadly do the findings apply?</h3>
+            <p>
+                The systematic review included 35 studies involving participants from 15 countries and regions, with
+                ages ranging from 10.7 to 92 years. This gives the findings a relatively broad empirical base. At the
+                same time, only 15 randomized controlled trials were included in the meta-analysis, many studies had
+                small sample sizes, and most were single-site studies. The results are therefore promising, but should
+                not be generalized too strongly to all populations, mental health conditions, or long-term outcomes.
+            </p>
+
+            <h3>Interestingness: Do the results matter?</h3>
+            <p>
+                The findings are highly relevant because AI chatbots are increasingly discussed and used in mental
+                health care. The results may change how people think about these tools: AI-based conversational agents
+                appear to be more than simple self-help applications, as they showed measurable effects on psychological
+                distress. It is also interesting that generative, multimodal, and mobile-based systems showed stronger
+                effects, which has implications for the design of future digital mental health interventions.
+            </p>
+
+            <h3>Credibility: How trustworthy are the claims?</h3>
+            <p>
+                The meta-analysis is credible in several ways. The authors searched twelve databases, followed PRISMA
+                guidelines, registered the protocol in PROSPERO, assessed risk of bias, used random-effects models,
+                conducted sensitivity analyses, and applied the GRADE approach to evaluate evidence quality. However,
+                credibility is limited by substantial heterogeneity, risk-of-bias concerns in several studies, limited
+                follow-up evidence, and the fact that only English-language publications were included.
+            </p>
+
+            <blockquote>
+                Overall, the meta-analysis provides promising and timely evidence that AI-based conversational agents
+                can reduce psychological distress, especially depressive symptoms. However, the evidence is stronger for
+                short-term symptom reduction than for long-term well-being. The findings support AI chatbots as an
+                additional mental health support tool, not as a replacement for professional care.
+            </blockquote>
+        </section>
+
         <section id="studies">
             <h2>Selected individual studies</h2>
             <p>
@@ -469,7 +618,7 @@
 
             <div class="grid three">
                 <a class="card study-link" href="study1.html">
-                    <span class="tag">Study 1</span>
+                    <span class="tag">Study: Heidi Jaklitsch</span>
                     <h3>text</h3>
                     <p>
                         text
@@ -477,7 +626,7 @@
                 </a>
 
                 <a class="card study-link" href="study_trummer_philipp.html">
-                    <span class="tag">Study Philipp Trummer</span>
+                    <span class="tag">Study: Philipp Trummer</span>
                     <h3>text</h3>
                     <p>
                         text
@@ -485,7 +634,7 @@
                 </a>
 
                 <a class="card study-link" href="study3.html">
-                    <span class="tag">Study 3</span>
+                    <span class="tag">Study: Stella Vego</span>
                     <h3>Rtext</h3>
                     <p>
                         text
