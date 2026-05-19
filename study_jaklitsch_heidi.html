@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Study 1 – Woebot RCT</title>
+
+  <style>
+    :root {
+      --bg: #f7f4ef;
+      --card: #ffffff;
+      --text: #202124;
+      --muted: #5f6368;
+      --accent: #4a6fa5;
+      --accent-dark: #2f4f7f;
+      --soft: #e7eef8;
+      --line: #ded8ce;
+      --max-width: 1120px;
+    }
+
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.65;
+      color: var(--text);
+      background: var(--bg);
+    }
+
+    header {
+      background: linear-gradient(135deg, var(--accent-light), #ffffff 75%);
+      border-bottom: 1px solid var(--line);
+      padding: 30px 0 34px;
+    }
+
+    .wrap {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 18px;
+    }
+
+    a {
+      color: var(--accent-dark);
+    }
+
+    .back-link {
+      display: inline-block;
+      margin-bottom: 18px;
+      text-decoration: none;
+      font-weight: 700;
+    }
+
+    .back-link:hover {
+      text-decoration: underline;
+    }
+
+    h1 {
+      font-size: clamp(34px, 5vw, 54px);
+      line-height: 1.08;
+      margin: 0 0 12px;
+      color: #15233a;
+    }
+
+    h2 {
+      font-size: 28px;
+      line-height: 1.2;
+      margin: 0 0 16px;
+      color: #17233b;
+    }
+
+    h3 {
+      font-size: 20px;
+      margin: 0 0 8px;
+      color: #24395c;
+    }
+
+    p {
+      margin: 0 0 12px;
+    }
+
+    .lead {
+      font-size: 20px;
+      color: var(--muted);
+      max-width: 850px;
+      margin-bottom: 18px;
+    }
+
+    .citation-note {
+      font-size: 14px;
+      color: var(--muted);
+      max-width: 930px;
+    }
+
+    main {
+      padding: 38px 0 44px;
+    }
+
+    section {
+      margin-bottom: 42px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 18px;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 22px;
+      box-shadow: 0 8px 22px rgba(30, 38, 54, 0.05);
+    }
+
+    .span-4 {
+      grid-column: span 4;
+    }
+
+    .span-6 {
+      grid-column: span 6;
+    }
+
+    .span-8 {
+      grid-column: span 8;
+    }
+
+    .span-12 {
+      grid-column: span 12;
+    }
+
+    .tag {
+      display: inline-block;
+      background: var(--accent-light);
+      color: var(--accent-dark);
+      font-weight: 700;
+      font-size: 13px;
+      padding: 4px 9px;
+      border-radius: 999px;
+      margin-bottom: 10px;
+      letter-spacing: .02em;
+    }
+
+    .big-number {
+      display: block;
+      font-size: 34px;
+      line-height: 1.1;
+      font-weight: 800;
+      color: var(--accent-dark);
+      margin: 2px 0 6px;
+    }
+
+    .muted {
+      color: var(--muted);
+    }
+
+    ul {
+      margin: 8px 0 0;
+      padding-left: 22px;
+    }
+
+    li {
+      margin-bottom: 8px;
+    }
+
+    .highlight {
+      border-left: 6px solid var(--accent);
+      background: #fbfdff;
+    }
+
+    .result-box {
+      background: var(--success);
+      border-color: #bad9c9;
+    }
+
+    .critical-box {
+      background: var(--critical);
+      border-color: #e4b9b9;
+    }
+
+    .warning-box {
+      background: var(--warning);
+      border-color: #eed29b;
+    }
+
+    .table-wrap {
+      overflow-x: auto;
+      border-radius: 14px;
+      border: 1px solid var(--line);
+      background: #fff;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 720px;
+      font-size: 15px;
+    }
+
+    th,
+    td {
+      text-align: left;
+      padding: 13px 14px;
+      border-bottom: 1px solid var(--line);
+      vertical-align: top;
+    }
+
+    th {
+      background: var(--accent-light);
+      color: var(--accent-dark);
+      font-weight: 800;
+    }
+
+    tr:last-child td {
+      border-bottom: none;
+    }
+
+    .takeaway {
+      font-size: 24px;
+      line-height: 1.35;
+      font-weight: 800;
+      color: #17233b;
+    }
+
+    .mini {
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    .quote-card {
+      font-size: 19px;
+      font-weight: 700;
+      color: #17233b;
+      background: var(--accent-light);
+      border-color: #c9d8ec;
+    }
+
+    .reference {
+      padding-left: 26px;
+      text-indent: -26px;
+      font-size: 15px;
+    }
+
+    footer {
+      border-top: 1px solid var(--line);
+      padding: 28px 0;
+      color: var(--muted);
+      font-size: 15px;
+      background: #fffaf2;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="wrap">
+      <a class="back-link" href="index.html">← Back to main page</a>
+      <h1>Study 1: Delivering CBT Through a Chatbot</h1>
+      <p class="lead">
+        Woebot as a fully automated conversational agent for depression and anxiety in young adults.
+      </p>
+      <p class="citation-note">
+        Based on: Fitzpatrick, K. K., Darcy, A., &amp; Vierhile, M. (2017). Delivering cognitive behavior therapy to
+        young adults with symptoms of depression and anxiety using a fully automated conversational agent (Woebot): A
+        randomized controlled trial. <em>JMIR Mental Health, 4</em>(2), e19.
+        <a href="https://doi.org/10.2196/mental.7785" target="_blank" rel="noopener noreferrer">
+          https://doi.org/10.2196/mental.7785
+        </a>
+      </p>
+    </div>
+  </header>
+  <br>
+  <br>
+  <main class="wrap">
+    <section>
+      <h2>Study at a glance</h2>
+      <div class="grid">
+        <div class="card span-4">
+          <span class="tag">Research Question</span>
+          <span class="big-number">CBT via chatbot?</span>
+          <p>Can a fully automated CBT-based chatbot reduce symptoms of depression and anxiety in young adults over a
+            short intervention period?</p>
+        </div>
+        <div class="card span-4">
+          <span class="tag">Sample</span>
+          <span class="big-number">N = 70</span>
+          <p>Young adults aged 18–28 recruited online from a university community.</p>
+        </div>
+        <div class="card span-4">
+          <span class="tag">Duration</span>
+          <span class="big-number">around 2 weeks</span>
+          <p>Participants in the intervention group could complete up to 20 brief chatbot sessions.</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Introduction - Why is this study relevant?</h2>
+      <div class="card highlight">
+        <p>
+          Depression and anxiety symptoms are common among college students, yet many students do not access clinical
+          services. Web-based and mobile CBT interventions can be effective, but they often suffer from low engagement
+          and poor completion rates.
+        </p>
+        <p>
+          Conversational agents may address this problem by making digital support feel more interactive, immediate, and
+          personally engaging.
+        </p>
+        <p>
+          This study is one of the earliest randomized controlled trials evaluating a fully automated, text-based mental
+          health chatbot. It asks whether core elements of cognitive behavioural therapy can be delivered through a
+          conversational interface rather than through a therapist or a traditional self-help app.
+        </p>
+        <ul>
+          <li>It focuses on a relevant target group: young adults with symptoms of depression and anxiety.</li>
+          <li>It addresses a major problem in digital mental health: poor adherence to self-help interventions.</li>
+          <li>It provides a concrete example of low-threshold psychological support that may reduce barriers such as
+            stigma or limited access to care.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section>
+      <h2>Method</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Component</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Design</strong></td>
+              <td>Unblinded randomized controlled trial comparing Woebot with an information-only control condition.
+              </td>
+            </tr>
+            <tr>
+              <td><strong>Sample</strong></td>
+              <td>N = 70 young adults, aged 18–28, who self-identified as experiencing symptoms of depression and
+                anxiety.</td>
+            </tr>
+            <tr>
+              <td><strong>Intervention</strong></td>
+              <td>Woebot: a fully automated text-based conversational agent delivering CBT-oriented self-help content
+                for 2 weeks, with up to 20 sessions.</td>
+            </tr>
+            <tr>
+              <td><strong>Control group</strong></td>
+              <td>Information-only control: participants received the National Institute of Mental Health ebook
+                <em>Depression in College Students</em>.
+              </td>
+            </tr>
+            <tr>
+              <td><strong>Measures</strong></td>
+              <td>PHQ-9 for depressive symptoms, GAD-7 for anxiety symptoms, and PANAS for positive and negative affect.
+              </td>
+            </tr>
+            <tr>
+              <td><strong>Assessment points</strong></td>
+              <td>Baseline and follow-up after approximately 2–3 weeks.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section>
+      <h2>What Woebot delivered</h2>
+      <div class="grid">
+        <div class="card span-6">
+          <span class="tag">CBT content</span>
+          <ul>
+            <li>Psychoeducation based on CBT principles</li>
+            <li>Mood tracking and reflection</li>
+            <li>Exercises targeting cognitive distortions</li>
+            <li>Short videos and word-game-like interactions</li>
+          </ul>
+        </div>
+        <div class="card span-6">
+          <span class="tag">Therapeutic process features</span>
+          <ul>
+            <li>Empathic responses to reported mood states</li>
+            <li>Tailored content depending on user input</li>
+            <li>Goal setting and follow-up</li>
+            <li>Regular check-ins to create accountability</li>
+            <li>Safety information and crisis support prompts</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Results</h2>
+      <div class="grid">
+        <div class="card span-6 result-box">
+          <span class="tag">Main clinical finding</span>
+          <p>
+            Participants in the Woebot group showed a significantly stronger reduction in depressive symptoms than
+            participants in the information-only control group.
+          </p>
+          <p><strong>PHQ-9:</strong> <em>p</em> = .017, <em>d</em> = 0.44</p>
+        </div>
+        <div class="card span-6 warning-box">
+          <span class="tag">Non-significant outcomes</span>
+          <ul>
+            <li>No significant between-group effect for anxiety symptoms.</li>
+            <li>No significant between-group effect for positive affect.</li>
+            <li>No significant between-group effect for negative affect.</li>
+          </ul>
+        </div>
+        <div class="card span-12">
+          <span class="tag">Engagement and acceptability</span>
+          <p>
+            Participants used Woebot on average around 12 times over the 2-week period, suggesting relatively high
+            engagement for a brief digital intervention. Woebot was also rated as more satisfying than the
+            information-only ebook, and users reported greater emotional awareness after using the chatbot.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>User experience</h2>
+      <div class="grid">
+        <div class="card span-6 result-box">
+          <span class="tag">Positive experiences</span>
+          <ul>
+            <li>Daily check-ins created a sense of accountability.</li>
+            <li>Participants noticed empathic responses and personality-like features.</li>
+            <li>The chatbot supported emotional insight and reflection.</li>
+            <li>Some participants described Woebot in interpersonal terms.</li>
+          </ul>
+        </div>
+        <div class="card span-6 critical-box">
+          <span class="tag">Negative experiences</span>
+          <ul>
+            <li>Some users experienced communication breakdowns.</li>
+            <li>The chatbot sometimes failed to understand unexpected responses.</li>
+            <li>Conversations could feel repetitive.</li>
+            <li>Technical glitches and looping conversational segments were reported.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Discussion</h2>
+      <div class="card highlight">
+        <p>
+          The study suggests that CBT-based self-help content can be delivered through a chatbot format in an engaging
+          way. It is notable, that users did not only respond to the therapeutic content, but also to process factors
+          such as empathy, accountability, and perceived relational qualities.
+        </p>
+        <p>
+          This implies that human–AI interaction may involve elements that resemble therapeutic process variables known
+          from psychotherapy research. However, the study does not prove that these process factors caused the symptom
+          reduction. They should be seen as plausible mechanisms that require further empirical testing.
+        </p>
+      </div>
+    </section>
+
+    <section>
+      <h2>Limitations</h2>
+      <div class="grid">
+        <div class="card span-6 critical-box">
+          <span class="tag">Methodological limitations</span>
+          <ul>
+            <li>Small sample size.</li>
+            <li>Short intervention period of only 2 weeks.</li>
+            <li>No long-term follow-up to test whether effects persisted.</li>
+            <li>Unblinded design.</li>
+            <li>No formal mediation analysis of engagement or therapeutic process factors.</li>
+          </ul>
+        </div>
+        <div class="card span-6 critical-box">
+          <span class="tag">Generalizability and bias</span>
+          <ul>
+            <li>University-based young adult sample limits generalizability.</li>
+            <li>Engagement in the ebook control condition could not be objectively tracked.</li>
+            <li>No dose-response analysis was possible because usage data were deidentified.</li>
+            <li>Conflict of interest: one author founded Woebot Labs.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Key takeaway</h2>
+      <div class="card quote-card">
+        <p class="takeaway">
+          Woebot may reduce depressive symptoms and provide accessible low-threshold mental health support, but the
+          evidence is preliminary.
+        </p>
+        <p>
+          The study supports the potential of chatbot-based CBT as a supportive tool, not as a replacement for
+          professional mental health care.
+        </p>
+      </div>
+    </section>
+
+    <section>
+      <h2>Abbreviations</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Abbreviation</th>
+              <th>Meaning</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>CBT</strong></td>
+              <td>Cognitive Behavioural Therapy.</td>
+            </tr>
+            <tr>
+              <td><strong>RCT</strong></td>
+              <td>Randomized Controlled Trial.</td>
+            </tr>
+            <tr>
+              <td><strong>PHQ-9</strong></td>
+              <td>Patient Health Questionnaire-9; a 9-item measure of depressive symptoms.</td>
+            </tr>
+            <tr>
+              <td><strong>GAD-7</strong></td>
+              <td>Generalized Anxiety Disorder-7; a 7-item measure of anxiety symptoms.</td>
+            </tr>
+            <tr>
+              <td><strong>PANAS</strong></td>
+              <td>Positive and Negative Affect Schedule; a measure of positive and negative affect.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section>
+      <h2>Reference</h2>
+      <div class="card">
+        <p class="reference">
+          Fitzpatrick, K. K., Darcy, A., &amp; Vierhile, M. (2017). Delivering cognitive behavior therapy to young
+          adults with symptoms of depression and anxiety using a fully automated conversational agent (Woebot): A
+          randomized controlled trial. <em>JMIR Mental Health, 4</em>(2), e19.
+          <a href="https://doi.org/10.2196/mental.7785" target="_blank" rel="noopener noreferrer">
+            https://doi.org/10.2196/mental.7785
+          </a>
+        </p>
+      </div>
+    </section>
+
+    <footer>
+      <div class="wrap">
+        <p>
+          <a href="index.html">← Back to the main meta-analysis page</a>
+        </p>
+      </div>
+    </footer>
+</body>
+
+</html>
