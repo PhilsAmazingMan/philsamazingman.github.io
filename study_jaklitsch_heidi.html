@@ -253,14 +253,24 @@
       font-size: 15px;
       background: #fffaf2;
     }
-    .image-container {
-    text-align: center;
+    
+    .image-row {
+    display: flex;
+    gap: 24px;
+    justify-content: center;
+    align-items: flex-start;
+    flex-wrap: wrap;
     margin: 36px 0;
+}
+
+.image-card {
+    text-align: center;
+    max-width: 240px;
 }
 
 .feature-image {
     width: 100%;
-    max-width: 500px;
+    max-width: 240px;
     border-radius: 20px;
     border: 1px solid var(--line);
     box-shadow: 0 8px 24px rgba(0,0,0,0.12);
@@ -270,11 +280,14 @@
     font-size: 14px;
     color: #666;
     margin-top: 10px;
+    line-height: 1.4;
 }
 
 .caption a {
     color: var(--accent-dark);
 }
+
+    
   </style>
 </head>
 
@@ -346,17 +359,36 @@
         </ul>
       </div>
 
-      <div class="image-container">
-  <img src="images/woebot_image2.webp"
-       alt="Woebot chatbot interface"
-       class="feature-image">
+     <div class="image-row">
 
-  <p class="caption">
-    Screenshot source:
-    <a href="https://play.google.com/store/apps/details?id=com.woebot&hl=de_AT">
-      Woebot – Google Play Store
-    </a>
-  </p>
+  <div class="image-card">
+    <img src="images/woebot_image2.webp"
+         alt="Woebot chatbot interface"
+         class="feature-image">
+
+    <p class="caption">
+      Woebot interface screenshot<br>
+      Source:
+      <a href="https://play.google.com/store/apps/details?id=com.woebot&hl=de_AT">
+        Google Play Store
+      </a>
+    </p>
+  </div>
+
+  <div class="image-card">
+    <img src="images/woebot_image1.webp"
+         alt="Woebot mood tracking interface"
+         class="feature-image">
+
+    <p class="caption">
+      Mood tracking feature<br>
+      Source:
+      <a href="https://play.google.com/store/apps/details?id=com.woebot&hl=de_AT">
+        Google Play Store
+      </a>
+    </p>
+  </div>
+
 </div>
       
     </section>
@@ -484,20 +516,6 @@
           </ul>
         </div>
       </div>
-      
-      <div class="image-container">
-  <img src="images/woebot_image1.webp"
-       alt="Woebot mood tracking interface"
-       class="feature-image">
-
-  <p class="caption">
-    Screenshot source:
-    <a href="https://play.google.com/store/apps/details?id=com.woebot&hl=de_AT">
-      Woebot – Google Play Store
-    </a>
-  </p>
-</div>
-      
     </section>
 
     <section>
